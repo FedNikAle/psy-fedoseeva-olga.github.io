@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Психолог Ольга Федосеева</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5c99c;
+            color: #3c2f2f;
+            line-height: 1.6;
+        }
+
+        /* ===== ГЛАВНЫЙ БЛОК ===== */
+        .hero {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 800px;
+            background: transparent;
+        }
+
+        .hero-photo {
+            flex: 1;
+            min-width: 400px;
+            background-image: url('photo.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-color: #d4c4b0;
+            border-radius: 20px 0 0 20px;
+        }
+
+        .hero-content {
+            flex: 2;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hero-top h1 {
+            font-size: 3.5rem;
+            color: #3c2f2f;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+	.hero-top .profession {
+	    font-size: 1.2rem;
+	    color: #c96b4f;
+	    font-weight: 700;
+	    text-transform: uppercase;
+	    letter-spacing: 2px;
+	    margin-bottom: 20px;
+	}
+
+        .hero-top .location {
+            color: #5a4a3f;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .hero-text {
+            background: rgba(255, 255, 255, 0.5);
+            border-left: 4px solid #c96b4f;
+            padding: 25px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 30px;
+        }
+
+        .hero-text p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .hero-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .hero-services {
+            font-style: italic;
+            font-size: 1.15rem;
+            margin-bottom: 40px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* Выделение ключевых слов */
+        .highlight {
+            color: #c96b4f;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background: #c96b4f;
+            color: white;
+            text-decoration: none;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            width: fit-content;
+            transition: all 0.3s;
+        }
+
+        .btn-main:hover {
+            background: #6b8e23;
+            transform: translateY(-2px);
+        }
+
+        /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+	.section-title {
+	    text-align: center;
+	    margin: 60px 0 30px;
+	    font-size: 1.8rem;
+	    text-transform: uppercase;
+	    color: #6b8e23; /* изменили цвет */
+        }
+
+        .intro {
+            text-align: justify;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        /* СЕТКА УСЛУГ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #6b8e23;
+        }
+
+        .service-card h3 {
+            color: #3c2f2f;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .service-card p {
+            color: #3c2f2f; 
+            font-size: 0.95rem;
+        }
+/* Шахматная раскраска для блоков "С чем я работаю" (2×3) */
+.services-grid .service-card:nth-child(1),
+.services-grid .service-card:nth-child(4),
+.services-grid .service-card:nth-child(5) {
+    background: #f5e6d8;
+}
+
+.services-grid .service-card:nth-child(2),
+.services-grid .service-card:nth-child(3),
+.services-grid .service-card:nth-child(6) {
+    background: #ffffff;
+}
+
+        /* СЕТКА СТАТЕЙ */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .article-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid #c96b4f;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-link {
+            display: block;
+            font-weight: bold;
+            color: #3c2f2f;
+            text-decoration: underline;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .article-link:hover {
+            color: #c96b4f;
+        }
+
+        .article-desc {
+            color: #3c2f2f; /* Сделано темнее (было #555) */
+            font-size: 0.95rem;
+            text-align: justify;
+            flex-grow: 1;
+ 	}
+	/* Шахматная раскраска для 8 статей (2×4) */
+.articles-grid .article-card:nth-child(1),
+.articles-grid .article-card:nth-child(4),
+.articles-grid .article-card:nth-child(5),
+.articles-grid .article-card:nth-child(8) {
+    background: #f5e6d8;
+}
+
+.articles-grid .article-card:nth-child(2),
+.articles-grid .article-card:nth-child(3),
+.articles-grid .article-card:nth-child(6),
+.articles-grid .article-card:nth-child(7) {
+    background: #ffffff;
+}
+
+	/* Чтобы рамка сверху осталась видимой, добавим небольшой отступ */
+	.articles-grid .article-card {
+ 	   padding: 25px;
+	    border-radius: 10px;
+ 	   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+	    border-top: 4px solid #c96b4f;
+	    display: flex;
+	    flex-direction: column;
+	    transition: all 0.3s;
+	}
+	
+	/* При наведении можно добавить лёгкую анимацию */
+	.articles-grid .article-card:hover {
+	    transform: translateY(-3px);
+	    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+	}
+
+        /* БЛОК СОГЛАСИЯ */
+        .consent-block {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            border-left: 4px solid #838193;
+        }
+
+        .consent-label {
+            font-size: 1rem;
+            color: #3c2f2f;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .consent-details {
+            background: #fafafa;
+            border-radius: 6px;
+            padding: 15px;
+            border: 1px solid #eee;
+        }
+
+        .consent-details summary {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #c96b4f;
+            font-weight: 600;
+        }
+
+        .consent-details summary::before {
+            content: '+';
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .consent-details[open] summary::before {
+            content: '−';
+        }
+
+        .consent-text {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9rem;
+            color: #3c2f2f; /* Сделано темнее (было #666) */
+            text-align: justify;
+            max-height: 400px;
+            overflow-y: auto;
+            line-height: 1.5;
+        }
+
+        .consent-text h4 {
+            color: #3c2f2f;
+            margin: 20px 0 10px;
+            font-size: 1rem;
+        }
+
+        .consent-text ul, .consent-text ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        .consent-text li {
+            margin-bottom: 8px;
+        }
+
+        .consent-text p {
+            margin-bottom: 10px;
+        }
+
+        /* КОНТАКТЫ */
+        .contacts {
+            background: #3c2f2f;
+            color: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contacts h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-btn {
+            display: block;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-btn:hover {
+            background: #c96b4f;
+            border-color: #c96b4f;
+            transform: translateY(-2px);
+        }
+
+        .contact-info p {
+            margin: 8px 0;
+            font-size: 1.1rem;
+        }
+
+        /* ДОП СОЦСЕТИ */
+        .extra-socials {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+            border-top: 4px solid #6b8e23;
+        }
+
+        .extra-socials h3 {
+            margin-bottom: 20px;
+            color: #3c2f2f;
+        }
+
+        .extra-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+.extra-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #8aaa5a;      /* светло-оливковый */
+    color: white;
+    text-decoration: none;
+    border: 1px solid #8aaa5a;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.extra-link:hover {
+    background: #6b8e23;      /* при наведении — насыщенный зелёный */
+    border-color: #6b8e23;
+}
+
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                min-height: auto;
+            }
+            .hero-photo {
+                width: 100%;
+                height: 400px;
+                border-radius: 20px 20px 0 0;
+            }
+            .hero-content {
+                padding: 30px 20px;
+            }
+            .hero-top h1 {
+                font-size: 2.5rem;
+            }
+            .services-grid,
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-top h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .contact-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ГЛАВНЫЙ БЛОК -->
+    <section class="hero">
+        <div class="hero-photo"></div>
+        <div class="hero-content">
+            <div class="hero-top">
+                <h1>Ольга Федосеева</h1>
+                <div class="profession">Клинический психолог</div>
+                <div class="location">Волгоград &nbsp;|&nbsp; Онлайн, Очно</div>
+
+                <div class="hero-text">
+                    <p>Вы зашли на эту страницу, вероятно, потому, что устали. Устали просыпаться с чувством тревоги, заставлять себя идти на нелюбимую работу, срываться на близких и чувствовать вину за это. Вы пытаетесь быть идеальным сотрудником, родителем, партнером, сыном или дочерью, а в результате не чувствуете себя нигде своим.</p>
+                    <p>Вам может казаться, что вы сбились с пути или что жизнь прошла мимо. Напряжение в отношениях, сложности с подрастающими детьми, чувство долга перед стареющими родителями и полное отсутствие времени на себя — вот знакомый вам коктейль, который приводит к выгоранию.</p>
+                    <p>Я специализируюсь на помощи людям именно в такой ситуации. Я не верю в волшебные таблетки. Я верю в системный подход.</p>
+                </div>
+
+                <p class="hero-services">Помогаю справиться с <span class="highlight">тревогой</span>, прожить <span class="highlight">стрессовые ситуации</span>, преодолеть <span class="highlight">прокрастинацию и выгорание</span>, понять <span class="highlight">отношения</span> (с детьми, с родителями).</p>
+            </div>
+            <a href="#contacts" class="btn-main">Записаться на консультацию</a>
+        </div>
+    </section>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <div class="container">
+
+        <h2 class="section-title">С чем я работаю</h2>
+        <div class="intro">
+            <p>В нашей работе мы можем сосредоточиться на том, что беспокоит именно вас:</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Эмоциональное выгорание</h3>
+                <p>Где найти силы? Как восстановить интерес? Стоит ли менять карьеру?</p>
+            </div>
+            <div class="service-card">
+                <h3>Тревога и панические атаки</h3>
+                <p>Как вернуть себе контроль над своими эмоциями и телом?</p>
+            </div>
+            <div class="service-card">
+                <h3>Кризис в отношениях с партнером</h3>
+                <p>От диалога двух глухих стен — к взаимопониманию и близости.</p>
+            </div>
+            <div class="service-card">
+                <h3>Сложности с детьми</h3>
+                <p>Переходный возраст, протесты, непонимание. Как остаться опорой и не сломаться самому?</p>
+            </div>
+            <div class="service-card">
+                <h3>Отношения с родителями</h3>
+                <p>Чувство вины, обиды, необходимость сепарации и выстраивание новых, взрослых границ.</p>
+            </div>
+            <div class="service-card">
+                <h3>Экзистенциальный кризис</h3>
+                <p>Вопросы "Кто я?", "Зачем я живу?", "Что делать дальше?".</p>
+            </div>
+        </div>
+      
+        <div class="extra-socials">
+            <h3>Мои страницы и сообщества</h3>
+            <div class="extra-links">
+                <a href="https://www.b17.ru/fedoseeva_olga/?prt=7500680foy" target="_blank" class="extra-link">Профиль в B17.ru</a>
+                <a href="https://t.me/psyFedoseevaOlga" target="_blank" class="extra-link">Канал в Telegram</a>
+                <a href="https://max.ru/join/48hfjFDI4NqoNfKFsWYVZOGCKHySX3OtvTRDer0GN8U" target="_blank" class="extra-link">Сообщество в Max</a>
+                <a href="https://vk.ru/club234638383" target="_blank" class="extra-link">Группа ВКонтакте</a>
+            </div>
+
+        <h2 class="section-title">Статьи и публикации</h2>
+
+        <div class="articles-grid">
+            <div class="article-card">
+                <a href="https://www.b17.ru/blog/o_potrebnostyah_cheloveka/" target="_blank" class="article-link">О потребностях человека</a>
+                <p class="article-desc">В своей практике я часто сталкиваюсь с последствиями неудовлетворенных потребностей: апатия, депрессия, тревога, аддикции, кризисы — за каждым из этих состояний стоит глубинная неудовлетворенность того или иного базового «запроса» психики.</p>
+            </div>
+
+            <div class="article-card">
+                <a href="https://www.b17.ru/article/profilaktika_emocionalnogo_vygoraniyafoy/" target="_blank" class="article-link">Заметь свой предел. Красные флажки эмоционального выгорания</a>
+                <p class="article-desc">Профилактика — ключевой момент: выгорание гораздо легче остановить на этапе первых звоночков, чем вытаскивать себя из полного истощения и цинизма. Подробный перечень ранних «красных флажков» по эмоциональному выгоранию в разных сферах.</p>
+            </div>
+
+            <div class="article-card">
+                <a href="https://www.b17.ru/article/emocionalnoe_vygoraniefoy/" target="_blank" class="article-link">Эмоциональное выгорание</a>
+                <p class="article-desc">Изначально синдром определялся строго как реакция на хронический рабочий стресс, но исследования последних десяти лет показали: те же три компонента — истощение, дистанцирование/цинизм и снижение личной эффективности — воспроизводятся в любой роли, предъявляющей высокие эмоциональные требования.</p>
+            </div>
+
+            <div class="article-card">
+                <a href="https://www.b17.ru/article/zaschitnye_mehanizmy_psihiki_pl/" target="_blank" class="article-link">Защитные механизмы психики</a>
+                <p class="article-desc">Представьте, что ваша психика — это дом с окнами. В окна поступает информация о мире. Но не вся информация приятна. Иногда в окно летят камни — плохие новости, обиды, страхи. И тогда срабатывают ставни — они автоматически закрываются, чтобы защитить вас.</p>
+            </div>
+
+            <div class="article-card">
+                <a href="https://www.b17.ru/blog/podborka_knig_dlya_samopomoschi/" target="_blank" class="article-link">Подборка книг для самопомощи</a>
+                <p class="article-desc">Рекомендуемая литература для тех, кто хочет глубже разобраться в себе и своих состояниях.</p>
+            </div>
+
+            <div class="article-card">
+                <a href="https://www.b17.ru/article/kak_reshitsya_na_izmeneniya_v_zhizni_kogda_ochen_strashno/" target="_blank" class="article-link">Как решиться на изменения в жизни, когда очень страшно</a>
+                <p class="article-desc">Вы чувствуете, что застряли на нелюбимой работе, в токсичных отношениях или в образе жизни, который вас истощает. Вы понимаете, что нужно что-то менять, но… не можете сделать шаг. Вместо решимости — парализующий страх.</p>
+            </div>
+
+            <div class="article-card">
+                <a href="https://www.b17.ru/article/ekzistencialnyy_krizis_v_podrostkovom_vozraste_/" target="_blank" class="article-link">Экзистенциальный кризис в подростковом возрасте</a>
+                <p class="article-desc">Подростковый возраст — критический период развития с масштабными биологическими, психологическими и социальными изменениями. Закономерным является возникновение возрастного кризиса, связанного с перестройкой самосознания.</p>
+            </div>
+
+            <div class="article-card">
+                <a href="https://www.b17.ru/article/trevozhnost_roditeley_podrostkov/" target="_blank" class="article-link">Тревожность родителей подростков</a>
+                <p class="article-desc">Подростковый возраст ребенка – закономерно сложный период для всей семьи. Родители часто сталкиваются с интенсивной тревогой, чувством беспомощности и утраты контроля. Эта тревога – не признак плохого родительства, а следствие сложных психологических процессов.</p>
+            </div>
+        </div>
+
+        <!-- СОГЛАСИЕ -->
+        <div class="consent-block">
+            <div class="consent-label">Перед записью на консультацию, пожалуйста, ознакомьтесь с информационным согласием:</div>
+            <details class="consent-details">
+                <summary>Информированное согласие</summary>
+                <div class="consent-text">
+                    <h4>ИНФОРМИРОВАННОЕ СОГЛАСИЕ</h4>
+                    <p><strong>Настоящее Информированное согласие определяет условия, принципы и правила психологического консультирования, оказываемого психологом Ольгой Федосеевой.</strong></p>
+                    
+                    <h4>1. Что такое психологическое консультирование</h4>
+                    <p>Психологическое консультирование – это профессиональная помощь в решении психологических затруднений. <strong>Важно понимать:</strong></p>
+                    <ul>
+                        <li>Психологическое консультирование не является медицинской услугой. Психолог не ставит диагнозов и не назначает лекарств.</li>
+                        <li>Психолог не даёт директивных советов и не принимает решений за клиента.</li>
+                        <li>Результат зависит от вашей включённости в процесс. Психолог не может дать полных гарантий, но будет работать в ваших интересах.</li>
+                        <li>Процесс изменений может сопровождаться временным дискомфортом – это нормальная часть работы.</li>
+                        <li>Участие добровольное. Вы вправе завершить работу на любом этапе. Для завершения сотрудничества предпологается заключительная встреча.</li>
+                    </ul>
+                    
+                    <h4>2. О психологе</h4>
+                    <p>Подробная информация о психологе размещена на странице: <a href="https://www.b17.ru/fedoseeva_olga/" target="_blank">www.b17.ru/fedoseeva_olga/</a></p>
+                    <p>Вы имеете право задать любые вопросы о квалификации и методах работы – как до начала, так и в процессе консультирования.</p>
+                    
+                    <h4>3. Конфиденциальность</h4>
+                    <p>Вся информация конфиденциальна и не передаётся третьим лицам без вашего согласия. Конфиденциальность носит двухсторонний характер. <strong>Исключения:</strong></p>
+                    <ul>
+                        <li>Вы дали письменное разрешение на передачу информации.</li>
+                        <li>Существует реальная угроза жизни или безопасности – вашей или другого человека.</li>
+                        <li>психолог обращается за супервизией к коллегам – все данные полностью обезличиваются.</li>
+                        <li>Описания случаев могут использоваться в публикациях исключительно в анонимизированном виде.</li>
+                    </ul>
+                    
+                    <h4>4. Формат работы</h4>
+                    <ul>
+                        <li>Сессии проводятся онлайн или очно.</li>
+                        <li>Продолжительность сессии — 50 минут.</li>
+                        <li>Стандартная периодичность – одна сессия в неделю.</li>
+                        <li>При опоздании клиента время сессии не продлевается.</li>
+			<li>Возможно стратегическая разовая консультация, продолжительностью более одного часа по предварительной записи.</li>
+                    </ul>
+                    
+                    <h4>5. Стоимость консультаций</h4>
+                    <ul>
+			<li>Стоимость индивальной консультации - 3000 рублей.</li>
+			<li>Стоимость семейной (парной) консультации - 5000 рублей.</li>
+                        <li>Стоимость сессии и порядок оплаты обсуждаются при первом контакте.</li>
+                        <li>Оплата производится до начала сессии.</li>
+                        <li>Возврат средств за проведённую сессию не осуществляется.</li>
+                    </ul>
+                    
+                    <h4>6. Отмена и перенос сессии</h4>
+                    <p><strong>Со стороны клиента:</strong></p>
+                    <ul>
+                        <li>Об отмене или переносе необходимо предупредить не менее чем за 24 часа.</li>
+                        <li>При отмене менее чем за 24 часа сессия оплачивается полностью и может быть перенесена на другое впемя в текущем месяце по согласованию.</li>
+                        <li>При неявке без предупреждения психолог вправе отменить последующие записи.</li>
+                    </ul>
+                    <p><strong>Со стороны психолога:</strong></p>
+                    <ul>
+                        <li>Психолог уведомляет об отмене не менее чем за 6 часов.</li>
+                        <li>При отмене без предупреждения следующая сессия проводится бесплатно.</li>
+                    </ul>
+                    
+                    <h4>7. Права и обязанности</h4>
+                    <p><strong>Психлог обязуется:</strong> соблюдать профессиональные и этические стандарты, работать в рамках компетенции, сохранять конфиденциальность.</p>
+                    <p><strong>Клиент обязуется:</strong> предоставлять достоверную информацию, соблюдать договорённости о расписании, не приходить на сессию в состоянии опьянения.</p>
+                    
+                    <h4>8. Этика и профессиональные границы</h4>
+                    <p>Психолог опирается на научно обоснованные подходы, не вступает в личные или деловые отношения с клиентом в период терапии и 5 лет после её завершения.</p>
+                    
+                    <h4>9. Завершение терапии</h4>
+                    <p>Клиент вправе завершить работу на любом этапе. При длительной работе рекомендуется провести 2-4 заключительные встречи для корректного завершения.</p>
+                    
+                    <h4>Подтверждение согласия</h4>
+                    <p><strong>Нажимая на кнопки связи со психологом, вы подтверждаете:</strong></p>
+                    <ol>
+                        <li>Я внимательно прочитал(а) настоящее согласие и понял(а) его содержание.</li>
+                        <li>Я осознаю, что психологическое консультирование не является медицинской услугой.</li>
+                        <li>Я согласен(а) с условиями оплаты, отмены и переноса сессий.</li>
+                    </ol>
+                </div>
+            </details>
+        </div>
+
+        <!-- КОНТАКТЫ -->
+        <div class="contacts" id="contacts">
+            <h2>Записаться на консультацию</h2>
+            
+            <div class="contact-buttons">
+                <a href="https://vk.com/fedossevaoy" target="_blank" class="contact-btn">Написать в VK</a>
+                <a href="https://t.me/FedoseevaOY" target="_blank" class="contact-btn">Написать в Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOKyf-BKEF15TlaVxACkw7bX79WgUbwIvweHtoPMZvCJCli8mEk" target="_blank" class="contact-btn">Написать в Max</a>
+                <a href="https://wa.me/message/P7JMBH5LDWRYI1" target="_blank" class="contact-btn">Написать в WhatsApp</a>
+            </div>
+
+            <div class="contact-info">
+                <p>Email: PSYfedoseevaOY@bk.ru</p>
+                <p>Телефон: +7 904 750-06-80</p>
+            </div>
+        </div>
+
+        
+        </div>
+
+    </div>
+
+</body>
+</html>
